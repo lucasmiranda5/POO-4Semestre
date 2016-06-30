@@ -122,6 +122,7 @@ public class loginAdm extends javax.swing.JFrame {
         if(b > 0){
             homeAdm home = new homeAdm();
             home.setVisible(true);
+            this.setVisible(false);
         }else{
             msgErro.setText("Usuario ou senha invalido(s)");
         }
