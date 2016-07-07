@@ -1,3 +1,5 @@
+package view;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -37,6 +39,16 @@ public class homeAdm extends javax.swing.JFrame {
         jLabel1.setText("Seja bem vindo ao sistema");
 
         jMenu1.setText("Fornecedor");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Materia Prima");
@@ -66,6 +78,16 @@ public class homeAdm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        listaFornec lista = new listaFornec();
+        lista.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+       
+    }//GEN-LAST:event_jMenu1ActionPerformed
 
     /**
      * @param args the command line arguments

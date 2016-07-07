@@ -1,3 +1,9 @@
+package model;
+
+
+import model.Conexao;
+import view.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,7 +18,8 @@ public class LanchoNet {
     
       public static void main(String[] args) {
        loginAdm t = new loginAdm();
+       homeAdm m = new homeAdm();
        Conexao con = new Conexao();
-       t.setVisible(true);
+       m.setVisible(true);
     }    
 }

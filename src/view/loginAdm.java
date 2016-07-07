@@ -1,4 +1,8 @@
+package view;
 
+
+import model.Conexao;
+import controller.loginCtrl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -19,10 +23,10 @@ public class loginAdm extends javax.swing.JFrame {
     /**
      * Creates new form loginAdm
      */
-    private Conexao cone;
+    public loginCtrl controller = new loginCtrl();
     public loginAdm() {
         initComponents();
-        cone = new Conexao();
+        
     }
 
     /**
@@ -109,17 +113,12 @@ public class loginAdm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println();
-        int b = 0;
-        ResultSet a = cone.query("SELECT * from administrador WHERE usuario = '"+textLogin.getText()+"' and senha = '"+textSenha.getText()+"'");
-        try {
-            while(a.next()){
-                b++;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(loginAdm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if(b > 0){
+        boolean b =false;
+        String login = textLogin.getText();
+        String senha = textSenha.getText();
+        System.out.println(login + " - " + senha);        
+        b = controller.login(login,senha);
+        if(b){
             homeAdm home = new homeAdm();
             home.setVisible(true);
             this.setVisible(false);

@@ -1,3 +1,5 @@
+package model;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,6 +15,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import view.listaFornec;
 
 public class Conexao {
     private Connection con;
@@ -44,10 +50,32 @@ public class Conexao {
             a = stmt.executeQuery(q);         
             
         }catch(SQLException e){
-            System.out.println("Error: "+ e.getMessage());            
-        }
-        
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);            
+        }        
         return a;
+    }
+    
+    public boolean query2(String q){
+        try{            
+            stmt.execute(q);        
+            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);           
+            return false;
+        }  
+        return true;
+    }
+    
+    public int tamanho(ResultSet a){
+        int b = 0;
+        try {
+            while(a.next()){
+               b++;                
+            }
+        } catch (SQLException ex) {
+           System.out.print("Erro");
+        }
+        return b;
     }
     
 }
