@@ -6,7 +6,7 @@
 package controller;
 import java.awt.List;
 import model.Conexao;
-import view.listaFornec;
+import view.listaCliente;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,33 +19,33 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author lucasmiranda
  */
-public class fornecCtrl {
+public class clienteCtrl {
     private Conexao cone;
-    public fornecCtrl() {
+    public clienteCtrl() {
         cone = new Conexao();
     }
     public ArrayList<String[]> listar(){
-        ResultSet a = cone.query("SELECT * from fornecedor ");
+        ResultSet a = cone.query("SELECT * from cliente ");
         ArrayList<String[]> arr;
         arr = new ArrayList<>();
         try {
             while(a.next()){
                 String[] aa = new String[3];
                 aa[0] = a.getString("id");
-                aa[1] = a.getString("razaoSocial");
-                aa[2] = a.getString("cnpj");               
+                aa[1] = a.getString("nome");
+                aa[2] = a.getString("telefone");               
                 arr.add(aa);                
             }
         } catch (SQLException ex) {
-            Logger.getLogger(listaFornec.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(listaCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
         return arr;
     }
     
-    public boolean adicionar(String cnpj, String razaoSocial, String nomeFantasia, String telefone, String rua,String bairro, String cidade,String responsavel){
-         ResultSet a = cone.query("SELECT * from fornecedor WHERE cnpj = '"+cnpj+"'");
+    public boolean adicionar(String cpf, String nome, String telefone, String rua,String bairro, String numero){
+         ResultSet a = cone.query("SELECT * from cliente WHERE cpf = '"+cpf+"'");
          int tamanho = cone.tamanho(a);
-         String s = "INSERT INTO fornecedor (cnpj,razaoSocial,nomeFantasia,telefone,rua,bairro,cidade,responsavel) VALUES ('"+cnpj+"','"+razaoSocial+"','"+nomeFantasia+"','"+telefone+"','"+rua+"','"+bairro+"','"+cidade+"','"+responsavel+"')";
+         String s = "INSERT INTO cliente (cpf,nome,telefone,rua,bairro,numero) VALUES ('"+cpf+"','"+nome+"','"+telefone+"','"+rua+"','"+bairro+"','"+numero+"')";
          System.out.print(s);
         if(tamanho == 0 ){
              boolean b = cone.query2(s);
@@ -56,39 +56,35 @@ public class fornecCtrl {
     }
     
     public Map retornar(String id){
-        ResultSet a = cone.query("SELECT * from fornecedor WHERE id = "+id);
+        ResultSet a = cone.query("SELECT * from cliente WHERE id = "+id);
         Map<String, String> arr = new HashMap<>();
         try {
             while(a.next()){
-                arr.put("razaoSocial",a.getString("razaoSocial"));
-                arr.put("cnpj",a.getString("cnpj"));
-                arr.put("nomeFantasia",a.getString("nomeFantasia"));
+                arr.put("cpf",a.getString("cpf"));
+                arr.put("nome",a.getString("nome"));
                 arr.put("telefone",a.getString("telefone"));
                 arr.put("rua",a.getString("rua"));
                 arr.put("bairro",a.getString("bairro"));
-                arr.put("cidade",a.getString("cidade"));
-                arr.put("responsavel",a.getString("responsavel"));                
+                arr.put("numero",a.getString("numero"));
                               
             }
         } catch (SQLException ex) {
-            Logger.getLogger(listaFornec.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(listaCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return arr;
     }
     
-    public boolean editar(String id, String cnpj, String razaoSocial, String nomeFantasia, String telefone, String rua,String bairro, String cidade,String responsavel){
-         ResultSet a = cone.query("SELECT * from fornecedor WHERE cnpj = '"+cnpj+"' and id <> "+id);
+    public boolean editar(String id, String cpf, String nome, String telefone, String rua,String bairro, String numero){
+         ResultSet a = cone.query("SELECT * from cliente WHERE cpf = '"+cpf+"' and id <> "+id);
          int tamanho = cone.tamanho(a);
-         String s = "UPDATE fornecedor SET "
-                 + "cnpj = '"+cnpj+"',"
-                 + "razaoSocial = '"+razaoSocial+"',"
-                 + "nomeFantasia = '"+nomeFantasia+"',"
+         String s = "UPDATE cliente SET "
+                 + "cpf = '"+cpf+"',"
+                 + "nome = '"+nome+"',"
                  + "telefone = '"+telefone+"',"
                  + "rua = '"+rua+"',"
                  + "bairro = '"+bairro+"',"
-                 + "cidade = '"+cidade+"',"
-                 + "responsavel = '"+responsavel+"' WHERE id = "+id;
+                 + "numero = '"+numero+"' WHERE id = "+id;
          System.out.print(s);
         if(tamanho == 0 ){
              boolean b = cone.query2(s);
@@ -99,14 +95,14 @@ public class fornecCtrl {
     }
     
     public boolean existe(String id){
-        ResultSet a = cone.query("SELECT * from fornecedor WHERE id = "+id);
+        ResultSet a = cone.query("SELECT * from cliente WHERE id = "+id);
         int tamanho = cone.tamanho(a);
         return tamanho == 1;
     }
     
     public boolean excluir(String id){
         if(this.existe(id)){
-            boolean b = cone.query2("DELETE FROM fornecedor WHERE id = "+id);
+            boolean b = cone.query2("DELETE FROM cliente WHERE id = "+id);
             return b;
         }else{
             return false;

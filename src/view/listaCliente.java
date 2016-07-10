@@ -1,6 +1,6 @@
 package view;
 
-import controller.fornecCtrl;
+import controller.clienteCtrl;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.TableUI;
@@ -17,13 +17,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author lucasmiranda
  */
-public class listaFornec extends javax.swing.JFrame {
+public class listaCliente extends javax.swing.JFrame {
 
     /**
      * Creates new form listaFornec
      */
-    private fornecCtrl controller = new fornecCtrl();
-    public listaFornec() {
+    private clienteCtrl controller = new clienteCtrl();
+    public listaCliente() {
         initComponents();
         atualizarDados();
              
@@ -75,7 +75,7 @@ public class listaFornec extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Nome", "CNPJ"
+                "Código", "Nome", "Telefone"
             }
         ) {
             Class[] types = new Class [] {
@@ -88,7 +88,7 @@ public class listaFornec extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaLista);
 
-        jLabel1.setText("Lista de fornecedores");
+        jLabel1.setText("Lista de Cliente");
 
         jButton1.setText("Adicionar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -157,9 +157,6 @@ public class listaFornec extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(200, 200, 200)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(89, 89, 89)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -175,6 +172,10 @@ public class listaFornec extends javax.swing.JFrame {
                         .addGap(0, 157, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(253, 253, 253)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,7 +200,7 @@ public class listaFornec extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        formularioFornec form = new formularioFornec();
+        formularioCliente form = new formularioCliente();
         form.acaoNovo();
         form.setVisible(true);
         this.setVisible(false);
@@ -210,7 +211,7 @@ public class listaFornec extends javax.swing.JFrame {
           if(id.isEmpty()){
             JOptionPane.showMessageDialog(null,"É necessario colocar o ID que quer editar","Error",JOptionPane.ERROR_MESSAGE);
           }else{
-            formularioFornec form = new formularioFornec();
+            formularioCliente form = new formularioCliente();
             form.acaoEditar(id);
             form.setVisible(true);
             this.setVisible(false);
@@ -270,20 +271,21 @@ public class listaFornec extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(listaFornec.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(listaFornec.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(listaFornec.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(listaFornec.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(listaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new listaFornec().setVisible(true);
+                new listaCliente().setVisible(true);
             }
         });
     }

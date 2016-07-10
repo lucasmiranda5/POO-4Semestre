@@ -5,7 +5,7 @@
  */
 package view;
 
-import controller.fornecCtrl;
+import controller.clienteCtrl;
 import javax.swing.JOptionPane;
 import view.listaFornec;
 import java.util.Map;
@@ -13,13 +13,13 @@ import java.util.Map;
  *
  * @author lucasmiranda
  */
-public class formularioFornec extends javax.swing.JFrame {
+public class formularioCliente extends javax.swing.JFrame {
 
     /**
      * Creates new form formularioFornec
      */
-    private fornecCtrl controller = new fornecCtrl();
-    public formularioFornec() {
+    private clienteCtrl controller = new clienteCtrl();
+    public formularioCliente() {
         initComponents();
     }
     
@@ -33,19 +33,16 @@ public class formularioFornec extends javax.swing.JFrame {
            textCodigo.setText(id);
            Map<String, String> arr;
            arr = controller.retornar(id);
-           textCNPJ.setText(arr.get("cnpj"));
-           textRazao.setText(arr.get("razaoSocial"));
-           textFantasia.setText(arr.get("nomeFantasia"));
+           textNome.setText(arr.get("nome"));
+           textCPF.setText(arr.get("cpf"));
            textTelefone.setText(arr.get("telefone"));
            textRua.setText(arr.get("rua"));
            textBairro.setText(arr.get("bairro"));
-           textCidade.setText(arr.get("cidade"));
-           textRespon.setText(arr.get("responsavel"));
-           
+           textNumero.setText(arr.get("numero"));           
            
        }else{
            JOptionPane.showMessageDialog(null,"O id digitado não existe","Erro",JOptionPane.ERROR_MESSAGE);
-           listaFornec list = new listaFornec();
+           listaCliente list = new listaCliente();
            list.setVisible(true);
            this.setVisible(false);
        }
@@ -63,22 +60,18 @@ public class formularioFornec extends javax.swing.JFrame {
         textCodigo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        textRazao = new javax.swing.JTextField();
+        textNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        textFantasia = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        textCNPJ = new javax.swing.JTextField();
+        textCPF = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         textTelefone = new javax.swing.JTextField();
         textRua = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         textBairro = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        textCidade = new javax.swing.JTextField();
+        textNumero = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        textRespon = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         textAcao = new javax.swing.JLabel();
         textMensagem = new javax.swing.JLabel();
@@ -92,15 +85,13 @@ public class formularioFornec extends javax.swing.JFrame {
 
         textCodigo.setEnabled(false);
 
-        jLabel1.setText("Fornecedor");
+        jLabel1.setText("Cliente");
 
         jLabel2.setText("Código");
 
-        jLabel3.setText("Razão Social");
+        jLabel3.setText("Nome");
 
-        jLabel4.setText("Nome Fantasia");
-
-        jLabel5.setText("CNPJ");
+        jLabel4.setText("CPF");
 
         jLabel6.setText("Telefone");
 
@@ -108,9 +99,7 @@ public class formularioFornec extends javax.swing.JFrame {
 
         jLabel9.setText("Bairro");
 
-        jLabel10.setText("Cidade");
-
-        jLabel11.setText("Responsavel");
+        jLabel10.setText("Numero");
 
         jButton1.setText("Salvar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +142,7 @@ public class formularioFornec extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 272, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(textAcao)
@@ -162,35 +151,28 @@ public class formularioFornec extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(230, 230, 230))))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(303, 303, 303)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textRazao)
-                            .addComponent(textFantasia)
-                            .addComponent(textCNPJ)
-                            .addComponent(textTelefone)
-                            .addComponent(textRua)
-                            .addComponent(textBairro)
-                            .addComponent(textCidade)
-                            .addComponent(textRespon, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel3)
-                            .addComponent(textCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(305, 305, 305)
-                        .addComponent(textMensagem)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textNome, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
+                    .addComponent(textCPF)
+                    .addComponent(textTelefone)
+                    .addComponent(textRua)
+                    .addComponent(textBairro)
+                    .addComponent(textNumero)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel3)
+                    .addComponent(textCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(305, 305, 305)
+                .addComponent(textMensagem))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(304, 304, 304)
+                .addComponent(jButton1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,22 +183,18 @@ public class formularioFornec extends javax.swing.JFrame {
                 .addComponent(textAcao)
                 .addGap(18, 18, 18)
                 .addComponent(textMensagem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textRazao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textFantasia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -232,14 +210,10 @@ public class formularioFornec extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textRespon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(textNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -249,18 +223,18 @@ public class formularioFornec extends javax.swing.JFrame {
        String acao = textAcao.getText();
        textMensagem.setText("Aguarde...");
        if(acao == "Adicionar"){
-            boolean retorno = controller.adicionar(textCNPJ.getText(), textRazao.getText(), textFantasia.getText(), textTelefone.getText(), textRua.getText(), textBairro.getText(), textCidade.getText(),textRespon.getText());
+            boolean retorno = controller.adicionar(textCPF.getText(), textNome.getText(), textTelefone.getText(),textRua.getText(), textBairro.getText(), textNumero.getText());
             if(retorno){
-                textMensagem.setText("Fornecedor gravado com sucesso");
+                textMensagem.setText("Cliente gravado com sucesso");
             }else{
-                textMensagem.setText("Já existe um fornecedor com o mesmo CNPJ");
+                textMensagem.setText("Já existe um cliente com o mesmo cpf");
             }                
        }else if(acao == "Editar"){
-            boolean retorno = controller.editar(textCodigo.getText(),textCNPJ.getText(), textRazao.getText(), textFantasia.getText(), textTelefone.getText(), textRua.getText(), textBairro.getText(), textCidade.getText(),textRespon.getText());
+            boolean retorno = controller.editar(textCodigo.getText(),textCPF.getText(), textNome.getText(), textTelefone.getText(),textRua.getText(), textBairro.getText(), textNumero.getText());
             if(retorno){
-                textMensagem.setText("Fornecedor gravado com sucesso");
+                textMensagem.setText("Cliente gravado com sucesso");
             }else{
-                textMensagem.setText("Já existe um fornecedor com o mesmo CNPJ");
+                textMensagem.setText("Já existe um cliente com o mesmo CPF");
             }
        }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -298,20 +272,21 @@ public class formularioFornec extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(formularioFornec.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formularioCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(formularioFornec.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formularioCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(formularioFornec.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formularioCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(formularioFornec.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formularioCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new formularioFornec().setVisible(true);
+                new formularioCliente().setVisible(true);
             }
         });
     }
@@ -320,11 +295,9 @@ public class formularioFornec extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
@@ -335,13 +308,11 @@ public class formularioFornec extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel textAcao;
     private javax.swing.JTextField textBairro;
-    private javax.swing.JTextField textCNPJ;
-    private javax.swing.JTextField textCidade;
+    private javax.swing.JTextField textCPF;
     private javax.swing.JTextField textCodigo;
-    private javax.swing.JTextField textFantasia;
     private javax.swing.JLabel textMensagem;
-    private javax.swing.JTextField textRazao;
-    private javax.swing.JTextField textRespon;
+    private javax.swing.JTextField textNome;
+    private javax.swing.JTextField textNumero;
     private javax.swing.JTextField textRua;
     private javax.swing.JTextField textTelefone;
     // End of variables declaration//GEN-END:variables

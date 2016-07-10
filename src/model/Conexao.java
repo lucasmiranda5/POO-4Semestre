@@ -40,7 +40,7 @@ public class Conexao {
         stmt = con.createStatement();
          
         }catch(SQLException e){
-            System.out.println("Error: "+ e.getMessage());
+            JOptionPane.showMessageDialog(null,e.getMessage(),"Erro",JOptionPane.ERROR_MESSAGE);
         }
     }
     
