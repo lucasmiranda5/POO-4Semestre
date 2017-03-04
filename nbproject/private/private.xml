@@ -3,14 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/lucasmiranda/NetBeansProjects/LanchoNet/src/view/listaFornec.java</file>
-            <file>file:/home/lucasmiranda/NetBeansProjects/LanchoNet/src/model/Conexao.java</file>
-            <file>file:/home/lucasmiranda/NetBeansProjects/LanchoNet/src/view/formularioFornec.java</file>
-            <file>file:/home/lucasmiranda/NetBeansProjects/LanchoNet/src/controller/fornecCtrl.java</file>
-            <file>file:/home/lucasmiranda/NetBeansProjects/LanchoNet/src/model/LanchoNet.java</file>
-            <file>file:/home/lucasmiranda/NetBeansProjects/LanchoNet/src/view/loginAdm.java</file>
-            <file>file:/home/lucasmiranda/NetBeansProjects/LanchoNet/src/controller/loginCtrl.java</file>
-            <file>file:/home/lucasmiranda/NetBeansProjects/LanchoNet/src/view/homeAdm.java</file>
+            <file>file:/home/lucasmiranda/NetBeansProjects/POO-4Semestre/src/negocios/FornecedorCtrl.java</file>
+            <file>file:/home/lucasmiranda/NetBeansProjects/POO-4Semestre/src/dados/GenericoDAO.java</file>
+            <file>file:/home/lucasmiranda/NetBeansProjects/POO-4Semestre/src/dados/ProdutoDAO.java</file>
+            <file>file:/home/lucasmiranda/NetBeansProjects/POO-4Semestre/src/GUI/formularioFornec.java</file>
+            <file>file:/home/lucasmiranda/NetBeansProjects/POO-4Semestre/src/negocios/ProdutoCtrl.java</file>
+            <file>file:/home/lucasmiranda/NetBeansProjects/POO-4Semestre/src/GUI/listaProduto.java</file>
+            <file>file:/home/lucasmiranda/NetBeansProjects/POO-4Semestre/src/GUI/formularioProduto.java</file>
+            <file>file:/home/lucasmiranda/NetBeansProjects/POO-4Semestre/src/dados/FornecedorDAO.java</file>
+            <file>file:/home/lucasmiranda/NetBeansProjects/POO-4Semestre/src/negocio/entidades/Fornecedor.java</file>
+            <file>file:/home/lucasmiranda/NetBeansProjects/POO-4Semestre/src/negocio/entidades/Produto.java</file>
+            <file>file:/home/lucasmiranda/NetBeansProjects/POO-4Semestre/src/GUI/listaFornec.java</file>
+            <file>file:/home/lucasmiranda/NetBeansProjects/POO-4Semestre/src/GUI/homeAdm.java</file>
         </group>
     </open-files>
 </project-private>
